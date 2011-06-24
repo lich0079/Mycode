@@ -1,0 +1,39 @@
+该项目涉及之java技术 io thread gui socket regex 
+
+设置一个字段  havaMessage
+Database Design
+
+create table user
+(
+	id int primary key,
+	pw varchar(10) not null,
+	ip varchar(20),
+	online bit, 
+)
+
+create table id_friendlist
+(
+	id int primary key,		
+)
+
+
+当一个人上线，服务器访问其id的id_friendlist，给其中所有在线的用户发消息，服务器端保存每个客户端连接
+
+
+一。 登陆界面
+	验证用户名 密码--访问服务器--服务器访问数据表user--验证成功--访问服务器数据表user，设置online为1,设置ip为当前主机ip--
+	--返回true，访问服务器数据库id_friendlist--读取好友列表--保存在list中--依次读取list中的id访问数据表user--
+	读取数据id,ip,online保存在user类中--生成List<User> friends--将friends返回给客户端--客户端打开主界面，关闭登陆界面
+
+
+----
+
+二。 主界面
+	load(){
+		title设置为 用户id 
+		接收服务器发送的friends--保存在客户端，--依次查看是否online--在线则显示可用-- 
+		
+	}
+	
+	 		
+	

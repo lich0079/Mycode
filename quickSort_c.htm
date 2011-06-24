@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.comp.dit.ie/rlawlor/Alg_DS/sorting/quickSort.c -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.3199" name=GENERATOR></HEAD>
+<BODY><PRE>// quickSort.c
+#include &lt;stdio.h&gt;
+
+void quickSort( int[], int, int);
+int partition( int[], int, int);
+
+
+void main() 
+{
+	int a[] = { 7, 12, 1, -2, 0, 15, 4, 11, 9};
+
+	int i;
+	printf("\n\nUnsorted array is:  ");
+	for(i = 0; i &lt; 9; ++i)
+		printf(" %d ", a[i]);
+
+	quickSort( a, 0, 8);
+
+	printf("\n\nSorted array is:  ");
+	for(i = 0; i &lt; 9; ++i)
+		printf(" %d ", a[i]);
+
+}
+
+
+
+void quickSort( int a[], int l, int r)
+{
+   int j;
+
+   if( l &lt; r ) 
+   {
+   	// divide and conquer
+        j = partition( a, l, r);
+       quickSort( a, l, j-1);
+       quickSort( a, j+1, r);
+   }
+	
+}
+
+
+
+int partition( int a[], int l, int r) {
+   int pivot, i, j, t;
+   pivot = a[l];
+   i = l; j = r+1;
+		
+   while( 1)
+   {
+   	do ++i; while( a[i] &lt;= pivot &amp;&amp; i &lt;= r );
+   	do --j; while( a[j] &gt; pivot );
+   	if( i &gt;= j ) break;
+   	t = a[i]; a[i] = a[j]; a[j] = t;
+   }
+   t = a[l]; a[l] = a[j]; a[j] = t;
+   return j;
+}
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

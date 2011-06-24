@@ -1,0 +1,13 @@
+完成新用户注册
+	验证 用户是否存在 存在 返回错误，不存在插入 并建立好友表
+
+
+完成搜索在线用户
+	搜索数据库 显示在线用户  id  ip
+添加好友
+	添加至数据库表 好友表 中，并添加到对方数据库 好友表 中，
+
+	发消息给双方 addfriend#id#ip
+	friends.add(friend)
+	sortButton
+	往mainui.friends中添加好友,sortButton，并给对方发送消息 让对方添加我至mainui.friends中，sortButton
